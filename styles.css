@@ -1,0 +1,800 @@
+/* Importando fontes elegantes */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Animação de fundo suave */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(135deg, #fff9f0, #ffe8d6, #ffd4b8, #ffe8d6, #fff9f0);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #3e2723;
+    line-height: 1.8;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Partículas flutuantes de fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 218, 185, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 192, 203, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container principal */
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        inset 0 0 80px rgba(255, 245, 235, 0.3);
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 1;
+    border-radius: 3px;
+}
+
+/* Decorações delicadas nas bordas */
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.2), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.container::before {
+    top: -50px;
+    left: -50px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.container::after {
+    bottom: -50px;
+    right: -50px;
+    animation: float 6s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 50px 0 70px;
+    border-bottom: 1px solid rgba(141, 110, 99, 0.3);
+    margin-bottom: 70px;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(255, 245, 235, 0.3), transparent);
+}
+
+.header::after {
+    content: '❦';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 245, 235, 0.98));
+    padding: 5px 25px;
+    font-size: 28px;
+    color: #c08070;
+    animation: pulse 3s ease-in-out infinite;
+    text-shadow: 0 2px 8px rgba(192, 128, 112, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    font-weight: 700;
+    color: #5d4037;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.08),
+        0 0 30px rgba(255, 182, 193, 0.3);
+    animation: titleAppear 1.5s ease-out;
+    background: linear-gradient(135deg, #5d4037, #8d6e63, #a1887f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.4em;
+    color: #8d6e63;
+    letter-spacing: 2px;
+    animation: subtitleAppear 1.5s ease-out 0.3s backwards;
+    position: relative;
+}
+
+.subtitle::before,
+.subtitle::after {
+    content: '✦';
+    color: #d7b5a5;
+    margin: 0 15px;
+    font-size: 0.8em;
+}
+
+@keyframes subtitleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Seções de texto */
+.text-section {
+    margin: 70px 0;
+    padding: 40px;
+    position: relative;
+    background: linear-gradient(to right, rgba(255, 245, 235, 0.2), rgba(255, 255, 255, 0.1), rgba(255, 245, 235, 0.2));
+    border-radius: 10px;
+    transition: all 0.6s ease;
+}
+
+.text-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(192, 128, 112, 0.15);
+}
+
+.ornament {
+    text-align: center;
+    font-size: 2.2em;
+    color: #d7b5a5;
+    margin: 20px 0;
+    animation: ornamentSpin 4s ease-in-out infinite;
+    display: inline-block;
+    width: 100%;
+}
+
+@keyframes ornamentSpin {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+.ornament.top {
+    margin-bottom: 35px;
+}
+
+.ornament.bottom {
+    margin-top: 35px;
+}
+
+.paragraph {
+    font-size: 1.25em;
+    text-align: justify;
+    margin-bottom: 30px;
+    text-indent: 50px;
+    color: #4e342e;
+    line-height: 2.2;
+    position: relative;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.paragraph:hover {
+    color: #3e2723;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.paragraph:first-of-type::first-letter {
+    font-size: 4.5em;
+    font-family: 'Playfair Display', serif;
+    float: left;
+    line-height: 0.8;
+    margin: 12px 15px 0 0;
+    color: #c08070;
+    text-shadow: 2px 2px 8px rgba(192, 128, 112, 0.3);
+    background: linear-gradient(135deg, #c08070, #d7b5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Seções de poema */
+.poem-section {
+    margin: 90px 0;
+    padding: 50px 30px;
+    background: 
+        linear-gradient(to right, transparent, rgba(255, 245, 235, 0.4), transparent),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="rgba(255,182,193,0.03)" width="100" height="100"/></svg>');
+    border-left: 2px solid rgba(215, 181, 165, 0.6);
+    border-right: 2px solid rgba(215, 181, 165, 0.6);
+    position: relative;
+    box-shadow: 
+        inset 0 0 50px rgba(255, 245, 235, 0.5),
+        0 5px 20px rgba(192, 128, 112, 0.1);
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.poem-section:hover {
+    background: 
+        linear-gradient(to right, transparent, rgba(255, 245, 235, 0.6), transparent),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="rgba(255,182,193,0.03)" width="100" height="100"/></svg>');
+    box-shadow: 
+        inset 0 0 60px rgba(255, 245, 235, 0.7),
+        0 10px 30px rgba(192, 128, 112, 0.15);
+}
+
+.poem-section::before,
+.poem-section::after {
+    content: '❦';
+    position: absolute;
+    font-size: 1.8em;
+    color: rgba(215, 181, 165, 0.5);
+    animation: float 4s ease-in-out infinite;
+}
+
+.poem-section::before {
+    top: 15px;
+    left: 15px;
+}
+
+.poem-section::after {
+    bottom: 15px;
+    right: 15px;
+    animation-delay: 2s;
+}
+
+.poem-container {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.poem-ornament {
+    font-size: 2.5em;
+    color: #d7b5a5;
+    margin-bottom: 25px;
+    animation: rotate 8s linear infinite;
+    display: inline-block;
+    filter: drop-shadow(0 3px 8px rgba(215, 181, 165, 0.4));
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.poem {
+    padding: 30px 0;
+    position: relative;
+}
+
+.poem-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    font-style: italic;
+    color: #5d4037;
+    margin: 15px 0;
+    line-height: 2;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    text-shadow: 0 2px 4px rgba(93, 64, 55, 0.1);
+    transition: all 0.3s ease;
+}
+
+.poem-line:hover {
+    color: #4e342e;
+    transform: translateX(5px);
+}
+
+.poem-line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.poem-line:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.poem-line:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.poem-line:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poem-author {
+    margin-top: 30px;
+    font-size: 1.15em;
+    color: #8d6e63;
+    font-style: italic;
+    position: relative;
+    animation: fadeIn 1s ease 1.2s backwards;
+}
+
+.poem-author::before {
+    content: '✦';
+    color: #d7b5a5;
+    margin-right: 10px;
+}
+
+/* Seção de contagem regressiva */
+.countdown-section {
+    margin: 100px 0 80px;
+    padding: 60px 40px;
+    text-align: center;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 245, 235, 0.8) 50%, rgba(255, 255, 255, 0.9) 100%),
+        radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.1), transparent);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 50px rgba(192, 128, 112, 0.2),
+        inset 0 0 60px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+    animation: rotateGradient 20s linear infinite;
+}
+
+@keyframes rotateGradient {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.countdown-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: #5d4037;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+    animation: titlePulse 3s ease-in-out infinite;
+    text-shadow: 0 3px 10px rgba(93, 64, 55, 0.15);
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.countdown-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d7b5a5, transparent);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 235, 0.9));
+    padding: 30px 35px;
+    border-radius: 15px;
+    box-shadow: 
+        0 8px 25px rgba(192, 128, 112, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(215, 181, 165, 0.3);
+    min-width: 130px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.time-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 182, 193, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.time-box:hover::before {
+    left: 100%;
+}
+
+.time-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 
+        0 15px 40px rgba(192, 128, 112, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border-color: rgba(215, 181, 165, 0.5);
+}
+
+.time-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #c08070;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(192, 128, 112, 0.2);
+    background: linear-gradient(135deg, #c08070, #d7b5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: numberPulse 2s ease-in-out infinite;
+}
+
+@keyframes numberPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.time-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05em;
+    color: #8d6e63;
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Mensagem de aniversário */
+.birthday-message {
+    animation: birthdayAppear 2s ease-in;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes birthdayAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.02);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.birthday-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: #c08070;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-shadow: 
+        0 3px 15px rgba(192, 128, 112, 0.3),
+        0 0 50px rgba(255, 182, 193, 0.2);
+    animation: celebration 2s ease-in-out infinite;
+    background: linear-gradient(135deg, #c08070, #d7b5a5, #c08070);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite, celebration 2s ease-in-out infinite;
+}
+
+@keyframes celebration {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.05) rotate(-2deg);
+    }
+    75% {
+        transform: scale(1.05) rotate(2deg);
+    }
+}
+
+.birthday-text {
+    font-size: 1.35em;
+    text-align: justify;
+    margin: 30px auto;
+    max-width: 720px;
+    color: #4e342e;
+    line-height: 2.3;
+    text-indent: 50px;
+    padding: 0 10px;
+    animation: fadeIn 2s ease 0.5s backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 50px 0 30px;
+    border-top: 1px solid rgba(141, 110, 99, 0.3);
+    margin-top: 80px;
+    position: relative;
+    background: linear-gradient(to top, rgba(255, 245, 235, 0.3), transparent);
+}
+
+.footer::before {
+    content: '❦';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 245, 235, 0.98));
+    padding: 5px 25px;
+    font-size: 28px;
+    color: #d7b5a5;
+    animation: float 4s ease-in-out infinite;
+}
+
+.footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3em;
+    color: #8d6e63;
+    margin: 15px 0;
+    animation: fadeIn 1.5s ease;
+}
+
+.footer p:first-of-type {
+    font-style: italic;
+    font-size: 1.4em;
+}
+
+.footer-date {
+    font-style: normal;
+    font-size: 1em;
+    color: #a1887f;
+    letter-spacing: 3px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .title {
+        font-size: 2.8em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+
+    .paragraph {
+        font-size: 1.15em;
+        text-align: left;
+    }
+
+    .poem-line {
+        font-size: 1.2em;
+    }
+
+    .countdown {
+        gap: 15px;
+    }
+
+    .time-box {
+        min-width: 100px;
+        padding: 25px 30px;
+    }
+
+    .time-number {
+        font-size: 3em;
+    }
+
+    .countdown-title {
+        font-size: 2.2em;
+    }
+
+    .birthday-title {
+        font-size: 2.5em;
+    }
+
+    .birthday-text {
+        font-size: 1.15em;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: 600% 600%;
+    }
+
+    .container {
+        padding: 30px 15px;
+    }
+
+    .title {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .subtitle::before,
+    .subtitle::after {
+        margin: 0 8px;
+        font-size: 0.7em;
+    }
+
+    .text-section {
+        padding: 25px 15px;
+    }
+
+    .paragraph {
+        font-size: 1.05em;
+    }
+
+    .poem-section {
+        padding: 40px 20px;
+    }
+
+    .poem-line {
+        font-size: 1.1em;
+    }
+
+    .countdown-section {
+        padding: 40px 20px;
+    }
+
+    .time-box {
+        min-width: 85px;
+        padding: 20px 25px;
+    }
+
+    .time-number {
+        font-size: 2.5em;
+    }
+
+    .time-label {
+        font-size: 0.95em;
+    }
+
+    .countdown-title {
+        font-size: 1.8em;
+    }
+
+    .birthday-title {
+        font-size: 2em;
+    }
+}
+
+/* Animação de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Efeitos de seleção de texto */
+::selection {
+    background: rgba(215, 181, 165, 0.4);
+    color: #3e2723;
+}
+
+::-moz-selection {
+    background: rgba(215, 181, 165, 0.4);
+    color: #3e2723;
+}
